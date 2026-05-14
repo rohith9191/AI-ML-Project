@@ -17,7 +17,7 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/dashboard');
     } catch (err) {
-      setError('Invalid credentials. Please try again.');
+      setError(err.response?.data?.message || 'Invalid credentials or network error. Please try again.');
     }
   };
 

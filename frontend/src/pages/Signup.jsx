@@ -15,7 +15,7 @@ const Signup = () => {
       await authApi.signup(formData);
       navigate('/login');
     } catch (err) {
-      setError('Signup failed. Email might already be registered.');
+      setError(err.response?.data?.message || 'Signup failed. Email might already be registered or network error.');
     }
   };
 
